@@ -5,7 +5,7 @@ From: ubuntu:bionic
 MAINTAINER verysure
 
 %files
-files/environment-nomkl.yml /
+files/environment.yml /
 files/initrc /
 files/shell.sh /bin/
 
@@ -23,7 +23,7 @@ rm /miniconda.sh
 . /opt/conda/etc/profile.d/conda.sh
 conda config --set auto_update_conda False
 conda install -y -n base conda=4.5.2
-conda env create -f /environment-nomkl.yml
+conda env create -f /environment.yml
 
 # create dftb folder
 mkdir /dftb && cd /dftb
@@ -55,7 +55,7 @@ chmod a+rX -R /dftb
 conda clean -y -a
 apt-get clean -yq
 rm /dftbsk.tar.xz
-rm /environment-nomkl.yml
+rm /environment.yml
 
 %environment
 export DFTB_PREFIX=/dftb/slako/3ob/3ob-3-1/
